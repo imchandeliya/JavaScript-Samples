@@ -1,0 +1,79 @@
+<!--    Sample Validation using JavaScript
+        author@ 'Aditya Chandeliya'
+-->
+<html>
+    <head>
+        <title>JavaScript Validation</title>
+        <!--Here we code for JavaScript Validation-->
+        <script type="text/javascript">
+            function validateMyForm(){
+                var name = document.personDetails._name_.value;
+                var age = document.personDetails._age_.value;
+                var gender = document.personDetails._gender_.value;
+                var contactNo = document.personDetails._contact_.value;
+                if(name=='' || name == null) 
+                {
+                    document.getElementById("validate_name").innerHTML = "Name is Compulsary";
+                    return false;
+                }
+                if(age == '' || age == null)
+                {
+                    document.getElementById("validate_age").innerHTML = "Age is Compulsary";
+                    return false;
+                }
+                if(age<=18)
+                {
+                    document.getElementById("validate_age").innerHTML = "Age should be greater than 18";
+                    return false;
+                }
+                if(gender == null || gender == '')
+                {
+                    document.getElementById("validate_gender").innerHTML = "Please Select a gender";
+                    return false;
+                }
+                if(contactNo.length != 10)
+                {
+                    document.getElementById("validate_contact").innerHTML = "Please enter a valid 10 digit contact Number";
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1 align='center'>Sample Validation</h1><hr>   
+        <!--This is our HTML form in which we are applying validations by JavaScript-->
+        <form action="formValuesOperation.jsp" name="personDetails" onsubmit="return validateMyForm()" method="post">
+            <table align='center'>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="_name_">
+                    </td>
+                    <td><p id="validate_name"></p></td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="number" name="_age_"></td>
+                    <td><p id="validate_age"></p></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="_gender_" value="male">Male
+                        <input type="radio" name="_gender_" value="female">Female
+                    </td>
+                    <td><p id="validate_gender"></p></td>
+                </tr>
+                <tr>
+                    <td>Contact Number:</td>
+                    <td><input type="number" name="_contact_"></td>
+                    <td><p id="validate_contact"></p></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit Values"></td>
+                </tr>
+            </table>    
+        </form>
+    </body>
+</html>
